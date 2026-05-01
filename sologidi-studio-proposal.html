@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sologidi Studio — Service Proposal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'DM Sans',sans-serif;background:#f5f4f0;color:#1a1a1a;min-height:100vh;padding:2rem 1rem 4rem}
+.page{max-width:820px;margin:0 auto}
+.hero{position:relative;border-radius:16px;overflow:hidden;margin-bottom:2rem;padding:3.5rem 3rem 3rem;background:#0a120e}
+.hero-glow-a{position:absolute;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(29,158,117,0.4) 0%,transparent 70%);top:-120px;right:-80px;pointer-events:none}
+.hero-glow-b{position:absolute;width:280px;height:280px;border-radius:50%;background:radial-gradient(circle,rgba(29,158,117,0.2) 0%,transparent 70%);bottom:-80px;left:40px;pointer-events:none}
+.hero-line{position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(29,158,117,0.7),transparent)}
+.hero-content{position:relative;z-index:1}
+.brand{font-family:'Fraunces',serif;font-size:3rem;font-weight:300;letter-spacing:-0.04em;color:#fff;line-height:1}
+.brand em{font-style:italic;color:#1D9E75}
+.tagline{font-size:11px;letter-spacing:0.13em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-top:8px}
+.hero-divider{width:40px;height:1px;background:#1D9E75;margin:1.5rem 0}
+.hero-intro{font-family:'Fraunces',serif;font-size:1.05rem;font-weight:300;font-style:italic;line-height:1.9;color:rgba(255,255,255,0.55);max-width:520px}
+.hero-meta{display:flex;justify-content:space-between;align-items:flex-end;margin-top:2rem;flex-wrap:wrap;gap:1rem}
+.hero-badge{display:inline-flex;align-items:center;gap:7px;font-size:11px;color:rgba(255,255,255,0.38);border:0.5px solid rgba(255,255,255,0.12);padding:5px 14px;border-radius:100px}
+.hero-badge-dot{width:6px;height:6px;border-radius:50%;background:#1D9E75;display:inline-block;flex-shrink:0}
+.hero-ref{text-align:right;font-size:11px;color:rgba(255,255,255,0.28);line-height:1.9}
+.hero-ref b{color:rgba(255,255,255,0.5);font-weight:400}
+.ctrl-row{display:flex;gap:14px;align-items:flex-end;flex-wrap:wrap;margin-bottom:2rem;padding:1.25rem 1.5rem;background:#fff;border-radius:12px;border:1px solid #e8e8e2;box-shadow:0 1px 3px rgba(0,0,0,0.04)}
+.ctrl-grp{display:flex;flex-direction:column;gap:6px}
+.ctrl-lbl{font-size:10px;color:#999;letter-spacing:0.09em;text-transform:uppercase}
+.ctrl-grp select{font-family:'DM Sans',sans-serif;padding:9px 14px;font-size:13px;border-radius:8px;border:1px solid #ddd;background:#fafaf8;color:#1a1a1a;cursor:pointer;min-width:185px;outline:none}
+.ctrl-grp select:focus{border-color:#1D9E75}
+.rate-box{margin-left:auto;font-size:12px;color:#999;text-align:right;line-height:1.8}
+.rate-box b{color:#1a1a1a;font-weight:500}
+.usdt-banner{display:none;background:linear-gradient(135deg,#071a10,#0a1f17);border:1px solid rgba(38,161,123,0.3);border-radius:12px;padding:1.5rem;margin-bottom:2rem}
+.usdt-banner.show{display:block}
+.usdt-top{display:flex;align-items:center;gap:12px;margin-bottom:1rem}
+.usdt-icon{width:36px;height:36px;border-radius:50%;background:#26A17B;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700;color:#fff;flex-shrink:0}
+.usdt-title{font-family:'Fraunces',serif;font-size:1.05rem;color:#fff;font-weight:400}
+.usdt-sub{font-size:11px;color:rgba(255,255,255,0.38);margin-top:2px}
+.usdt-wallet-label{font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-bottom:7px}
+.usdt-wallet{display:flex;align-items:center;gap:10px;background:rgba(255,255,255,0.04);border:0.5px solid rgba(38,161,123,0.3);border-radius:9px;padding:11px 14px}
+.usdt-address{font-family:monospace;font-size:12px;color:#26A17B;word-break:break-all;flex:1;line-height:1.7}
+.usdt-copy-btn{padding:7px 16px;background:#26A17B;color:#fff;border:none;border-radius:7px;font-size:12px;font-family:'DM Sans',sans-serif;cursor:pointer;font-weight:500;flex-shrink:0;white-space:nowrap}
+.usdt-deposit-box{margin-top:12px;padding:10px 14px;background:rgba(38,161,123,0.08);border-radius:8px;font-size:13px;color:rgba(255,255,255,0.45)}
+.usdt-deposit-box b{color:#26A17B;font-family:'Fraunces',serif;font-size:1.15rem;font-weight:300}
+.usdt-note{font-size:11px;color:rgba(255,255,255,0.25);margin-top:12px;line-height:2;border-top:0.5px solid rgba(255,255,255,0.06);padding-top:12px}
+.sec-lbl{font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:#aaa;margin-bottom:1rem;display:flex;align-items:center;gap:10px}
+.sec-lbl::after{content:'';flex:1;height:0.5px;background:#e0e0da}
+.pkgs{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:2rem}
+@media(max-width:700px){.pkgs{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:420px){.pkgs{grid-template-columns:1fr}}
+.pkg{border-radius:14px;padding:1.25rem;cursor:pointer;position:relative;overflow:hidden;border:1.5px solid transparent;transition:transform 0.18s,box-shadow 0.18s}
+.pkg:hover{transform:translateY(-3px);box-shadow:0 6px 20px rgba(0,0,0,0.08)}
+.pkg.t1{background:#f2faf6;border-color:#c0e8d4}
+.pkg.t2{background:#edf4fb;border-color:#b5d5ef}
+.pkg.t3{background:#fdf5ec;border-color:#efd8ae}
+.pkg.t4{background:#fdf0f4;border-color:#eebdd0}
+.pkg.sel.t1{border-color:#1D9E75;box-shadow:0 0 0 3px rgba(29,158,117,0.18)}
+.pkg.sel.t2{border-color:#378ADD;box-shadow:0 0 0 3px rgba(55,138,221,0.18)}
+.pkg.sel.t3{border-color:#BA7517;box-shadow:0 0 0 3px rgba(186,117,23,0.18)}
+.pkg.sel.t4{border-color:#D4537E;box-shadow:0 0 0 3px rgba(212,83,126,0.18)}
+.pkg.pop{outline:2px solid #378ADD;outline-offset:0}
+.pop-tag{position:absolute;top:-1px;right:-1px;background:#378ADD;color:#fff;font-size:9px;padding:3px 10px;border-radius:0 12px 0 8px;letter-spacing:0.04em;font-weight:500}
+.chk-ring{position:absolute;top:10px;left:10px;width:17px;height:17px;border-radius:50%;display:none;align-items:center;justify-content:center}
+.pkg.sel .chk-ring{display:flex}
+.t1.sel .chk-ring{background:#1D9E75}
+.t2.sel .chk-ring{background:#378ADD}
+.t3.sel .chk-ring{background:#BA7517}
+.t4.sel .chk-ring{background:#D4537E}
+.dot{width:7px;height:7px;border-radius:50%;margin-bottom:10px}
+.t1 .dot{background:#1D9E75}
+.t2 .dot{background:#378ADD}
+.t3 .dot{background:#BA7517}
+.t4 .dot{background:#D4537E}
+.pkg-name{font-family:'Fraunces',serif;font-size:1.1rem;font-weight:400;color:#1a1a1a;margin-bottom:3px}
+.pkg-desc{font-size:11px;color:#777;margin-bottom:12px;line-height:1.55}
+.pkg-price{font-family:'Fraunces',serif;font-size:1.45rem;font-weight:300;color:#1a1a1a;margin-bottom:2px}
+.pkg-sub{font-size:10px;color:#aaa}
+.pkg-feats{margin-top:12px;border-top:0.5px solid rgba(0,0,0,0.07);padding-top:12px;list-style:none;display:flex;flex-direction:column;gap:6px}
+.pkg-feats li{font-size:11px;color:#666;display:flex;align-items:flex-start;gap:7px;line-height:1.45}
+.pkg-feats li::before{content:'';width:4px;height:4px;border-radius:50%;flex-shrink:0;margin-top:5px}
+.t1 .pkg-feats li::before{background:#1D9E75}
+.t2 .pkg-feats li::before{background:#378ADD}
+.t3 .pkg-feats li::before{background:#BA7517}
+.t4 .pkg-feats li::before{background:#D4537E}
+.addons-wrap{background:#fff;border:1px solid #e8e8e2;border-radius:12px;padding:1.5rem;margin-bottom:2rem;box-shadow:0 1px 3px rgba(0,0,0,0.04)}
+.addons-hint{font-size:12px;color:#aaa;margin-bottom:1rem}
+.addons-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:9px}
+.addon{display:flex;align-items:center;gap:10px;padding:10px 13px;background:#fafaf8;border:1px solid #eee;border-radius:9px;cursor:pointer;transition:border-color 0.15s,background 0.15s}
+.addon:hover{border-color:#ccc}
+.addon.chkd{border-color:#1D9E75;background:#f2faf6}
+.addon input{accent-color:#1D9E75;cursor:pointer;flex-shrink:0;width:15px;height:15px}
+.addon-name{font-size:12px;font-weight:500;color:#1a1a1a}
+.addon-price{font-size:11px;color:#aaa;margin-top:2px}
+.summary{border-radius:14px;overflow:hidden;margin-bottom:2rem;box-shadow:0 2px 12px rgba(0,0,0,0.07)}
+.sum-head{background:#0a120e;padding:1.1rem 1.5rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+.sum-head-lbl{font-size:10px;letter-spacing:0.09em;text-transform:uppercase;color:rgba(255,255,255,0.35)}
+.sum-head-pkg{font-family:'Fraunces',serif;font-size:1rem;font-weight:300;color:#fff;font-style:italic}
+.sum-body{background:#fff;padding:1.1rem 1.5rem}
+.sum-row{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;padding:8px 0;border-bottom:0.5px solid #f0f0ec;font-size:13px}
+.sum-row:last-child{border-bottom:none}
+.sum-lbl{color:#aaa}
+.sum-val{color:#1a1a1a;text-align:right;max-width:60%}
+.sum-usdt-row{background:#f2fdf8;border-left:3px solid #26A17B;padding:8px 12px;border-radius:0 6px 6px 0;margin-top:4px;display:none}
+.sum-usdt-row.show{display:flex;justify-content:space-between;align-items:center}
+.sum-usdt-lbl{font-size:12px;color:#26A17B}
+.sum-usdt-val{font-family:'Fraunces',serif;font-size:1rem;color:#26A17B;font-weight:300}
+.sum-total-bar{background:#0a120e;padding:1.1rem 1.5rem;display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:0.5rem}
+.tot-lbl{font-size:11px;letter-spacing:0.07em;text-transform:uppercase;color:rgba(255,255,255,0.3)}
+.tot-amt{font-family:'Fraunces',serif;font-size:2rem;font-weight:300;color:#1D9E75}
+.cta-row{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:2.5rem}
+.btn-main{padding:13px 28px;background:#1D9E75;color:#fff;border:none;border-radius:9px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:500;cursor:pointer;transition:opacity 0.15s;text-decoration:none;display:inline-block}
+.btn-main:hover{opacity:0.88}
+.btn-ghost{padding:13px 28px;background:#fff;color:#1a1a1a;border:1px solid #ddd;border-radius:9px;font-family:'DM Sans',sans-serif;font-size:14px;cursor:pointer;transition:background 0.15s;text-decoration:none;display:inline-block}
+.btn-ghost:hover{background:#f5f5f0}
+.footer{background:#0a120e;border-radius:16px;padding:2rem 2.5rem;position:relative;overflow:hidden}
+.footer-glow{position:absolute;width:250px;height:250px;border-radius:50%;background:radial-gradient(circle,rgba(29,158,117,0.15) 0%,transparent 70%);bottom:-100px;right:20px;pointer-events:none}
+.footer-line{position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(29,158,117,0.45),transparent)}
+.footer-inner{position:relative;z-index:1}
+.footer-title{font-family:'Fraunces',serif;font-size:1rem;font-style:italic;color:rgba(255,255,255,0.38);margin-bottom:1rem}
+.footer-text{font-size:11px;color:rgba(255,255,255,0.22);line-height:2.3}
+.footer-contacts{margin-top:1.5rem;padding-top:1.5rem;border-top:0.5px solid rgba(255,255,255,0.07);display:flex;flex-wrap:wrap;gap:1.5rem}
+.fc{display:flex;align-items:center;gap:8px;font-size:12px;color:rgba(255,255,255,0.35)}
+.fc-dot{width:4px;height:4px;border-radius:50%;background:#1D9E75;flex-shrink:0}
+.fc a{color:#1D9E75;text-decoration:none}
+.fc a:hover{text-decoration:underline}
+.pay-chips{margin-top:1.25rem;padding-top:1.25rem;border-top:0.5px solid rgba(255,255,255,0.07);display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.pay-label{font-size:10px;letter-spacing:0.07em;text-transform:uppercase;color:rgba(255,255,255,0.22);margin-right:4px}
+.chip{display:inline-flex;align-items:center;gap:5px;font-size:11px;padding:4px 11px;border-radius:100px;border:0.5px solid rgba(255,255,255,0.1);color:rgba(255,255,255,0.32)}
+.chip.usdt{border-color:rgba(38,161,123,0.45);color:#26A17B;font-weight:500}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="hero">
+    <div class="hero-glow-a"></div>
+    <div class="hero-glow-b"></div>
+    <div class="hero-line"></div>
+    <div class="hero-content">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:1rem">
+        <div>
+          <div class="brand">Sologidi <em>Studio</em></div>
+          <div class="tagline">Web &amp; Mobile Development</div>
+        </div>
+        <div class="hero-ref">
+          <div>Ref &nbsp;<b id="docref"></b></div>
+          <div id="docdate" style="margin-top:3px"></div>
+        </div>
+      </div>
+      <div class="hero-divider"></div>
+      <p class="hero-intro">We design and build digital experiences that are fast, beautiful, and built to grow your business — from a clean landing page to a full mobile application.</p>
+      <div class="hero-meta">
+        <div class="hero-badge"><div class="hero-badge-dot"></div> Service Proposal &amp; Pricing Guide</div>
+        <div style="font-size:11px;color:rgba(255,255,255,0.2);font-style:italic;font-family:'Fraunces',serif">Select your package below ↓</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ctrl-row">
+    <div class="ctrl-grp">
+      <div class="ctrl-lbl">Country / Payment method</div>
+      <select id="ctrySel">
+        <option value="NG">🇳🇬 Nigeria (NGN)</option>
+        <option value="US">🇺🇸 United States (USD)</option>
+        <option value="GB">🇬🇧 United Kingdom (GBP)</option>
+        <option value="CA">🇨🇦 Canada (CAD)</option>
+        <option value="GH">🇬🇭 Ghana (GHS)</option>
+        <option value="KE">🇰🇪 Kenya (KES)</option>
+        <option value="ZA">🇿🇦 South Africa (ZAR)</option>
+        <option value="EU">🇪🇺 Europe (EUR)</option>
+        <option value="AE">🇦🇪 UAE (AED)</option>
+        <option value="USDT">🪙 Pay with USDT — Crypto</option>
+      </select>
+    </div>
+    <div class="ctrl-grp">
+      <div class="ctrl-lbl">Display currency</div>
+      <select id="curSel">
+        <option value="NGN">NGN — Nigerian Naira (₦)</option>
+        <option value="USD">USD — US Dollar ($)</option>
+        <option value="GBP">GBP — British Pound (£)</option>
+        <option value="CAD">CAD — Canadian Dollar (CA$)</option>
+        <option value="GHS">GHS — Ghanaian Cedi (GH₵)</option>
+        <option value="KES">KES — Kenyan Shilling (KSh)</option>
+        <option value="ZAR">ZAR — South African Rand (R)</option>
+        <option value="EUR">EUR — Euro (€)</option>
+        <option value="AED">AED — UAE Dirham (د.إ)</option>
+        <option value="USDT">USDT — Tether (₮)</option>
+      </select>
+    </div>
+    <div class="rate-box">
+      <div>Exchange rate</div>
+      <div><b id="rateDisplay">Base currency</b></div>
+    </div>
+  </div>
+
+  <div class="usdt-banner" id="usdtBanner">
+    <div class="usdt-top">
+      <div class="usdt-icon">₮</div>
+      <div>
+        <div class="usdt-title">Pay with USDT (TRC-20 Network)</div>
+        <div class="usdt-sub">Tether on the TRON network — fast, borderless, no bank required</div>
+      </div>
+    </div>
+    <div class="usdt-wallet-label">Your payment wallet address (TRC-20 only)</div>
+    <div class="usdt-wallet">
+      <div class="usdt-address">TNvkRHDV43JwDVmcWCVNtWPJHNm94ZkKfA</div>
+      <button class="usdt-copy-btn" id="copyBtn" onclick="copyWallet()">Copy address</button>
+    </div>
+    <div class="usdt-deposit-box" id="usdtDepBox" style="display:none">
+      60% deposit to send: &nbsp;<b id="usdtDepVal">—</b> USDT &nbsp;·&nbsp; Full amount: <b id="usdtFullVal">—</b> USDT
+    </div>
+    <div class="usdt-note">
+      ⚠️ <b style="color:rgba(255,255,255,0.45)">Important:</b> Only send USDT on the <b style="color:rgba(255,255,255,0.45)">TRC-20 (TRON)</b> network. Sending on any other network (ERC-20, BEP-20) may result in permanent loss of funds.<br>
+      After payment, send your <b style="color:rgba(255,255,255,0.4)">transaction hash (TXID)</b> to <span style="color:#26A17B">Donatussologidi121@gmail.com</span> or WhatsApp <span style="color:#26A17B">+234 706 823 9599</span> to confirm your order.
+    </div>
+  </div>
+
+  <div class="sec-lbl">Choose a package</div>
+  <div class="pkgs" id="pkgGrid"></div>
+
+  <div class="sec-lbl">Add-on services</div>
+  <div class="addons-wrap">
+    <div class="addons-hint">Tick any extras — they will be added to your total automatically.</div>
+    <div class="addons-grid" id="addonGrid"></div>
+  </div>
+
+  <div class="sec-lbl">Quote summary</div>
+  <div class="summary">
+    <div class="sum-head">
+      <div class="sum-head-lbl">Selected package</div>
+      <div class="sum-head-pkg" id="sumPkgHead">None selected</div>
+    </div>
+    <div class="sum-body">
+      <div class="sum-row"><span class="sum-lbl">Package price</span><span class="sum-val" id="sumPkgPrice">—</span></div>
+      <div class="sum-row"><span class="sum-lbl">Selected add-ons</span><span class="sum-val" id="sumAddons">None</span></div>
+      <div class="sum-row"><span class="sum-lbl">Add-ons subtotal</span><span class="sum-val" id="sumAddonsPrice">—</span></div>
+      <div class="sum-row"><span class="sum-lbl">Estimated timeline</span><span class="sum-val" id="sumTimeline">—</span></div>
+      <div class="sum-row"><span class="sum-lbl">Deposit required (60%)</span><span class="sum-val" id="sumDeposit">—</span></div>
+      <div class="sum-usdt-row" id="usdtSumRow">
+        <span class="sum-usdt-lbl">₮ USDT deposit equivalent (60%)</span>
+        <span class="sum-usdt-val" id="usdtSumVal">—</span>
+      </div>
+    </div>
+    <div class="sum-total-bar">
+      <div class="tot-lbl">Estimated total</div>
+      <div class="tot-amt" id="sumTotal">—</div>
+    </div>
+  </div>
+
+  <div class="cta-row">
+    <a class="btn-main" href="mailto:Donatussologidi121@gmail.com?subject=Website Inquiry — Sologidi Studio&body=Hi Donatus,%0D%0A%0D%0AI have reviewed your service packages and I am interested in proceeding.%0D%0A%0D%0APlease get in touch so we can discuss further.%0D%0A%0D%0AThank you.">Get in touch ↗</a>
+    <a class="btn-ghost" href="https://wa.me/2347068239599?text=Hi+Donatus%2C+I+reviewed+the+Sologidi+Studio+proposal+and+I%27m+interested+in+your+services." target="_blank">WhatsApp us</a>
+  </div>
+
+  <div class="footer">
+    <div class="footer-glow"></div>
+    <div class="footer-line"></div>
+    <div class="footer-inner">
+      <div class="footer-title">A note before we begin</div>
+      <div class="footer-text">
+        All prices shown are starting estimates. A formal quote is issued after a free discovery call and may vary based on scope and complexity.<br>
+        A non-refundable deposit of 60% is required to commence work. The remaining 40% balance is due upon project completion.<br>
+        All projects are governed by a signed service agreement. Prices are subject to change without prior notice.<br>
+        USDT payments accepted on TRC-20 network only. Always confirm wallet address before sending crypto. 60% deposit required to commence work.
+      </div>
+      <div class="footer-contacts">
+        <div class="fc"><div class="fc-dot"></div><a href="mailto:Donatussologidi121@gmail.com">Donatussologidi121@gmail.com</a></div>
+        <div class="fc"><div class="fc-dot"></div><a href="tel:+2347068239599">+234 706 823 9599</a></div>
+        <div class="fc"><div class="fc-dot"></div><span>Mon – Fri &nbsp;·&nbsp; 9am – 6pm WAT</span></div>
+      </div>
+      <div class="pay-chips">
+        <span class="pay-label">We accept</span>
+        <span class="chip">Bank Transfer</span>
+        <span class="chip">Paystack</span>
+        <span class="chip">Flutterwave</span>
+        <span class="chip">PayPal</span>
+        <span class="chip usdt">₮ USDT TRC-20</span>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+var WALLET='TNvkRHDV43JwDVmcWCVNtWPJHNm94ZkKfA';
+var RATES={NGN:1,USD:0.00065,GBP:0.00052,CAD:0.00088,GHS:0.0085,KES:0.082,ZAR:0.012,EUR:0.00060,AED:0.0024,USDT:0.00065};
+var SYMS={NGN:'₦',USD:'$',GBP:'£',CAD:'CA$',GHS:'GH₵',KES:'KSh',ZAR:'R',EUR:'€',AED:'د.إ ',USDT:'₮'};
+var CTRY={NG:'NGN',US:'USD',GB:'GBP',CA:'CAD',GH:'GHS',KE:'KES',ZA:'ZAR',EU:'EUR',AE:'AED',USDT:'USDT'};
+var PKGS=[
+  {id:'s',cls:'t1',name:'Starter Site',desc:'A clean, fast presence for businesses getting started online.',ngn:250000,time:'1 – 2 weeks',feats:['Up to 3 pages, responsive design','Mobile-friendly layout','Contact form integration','Basic SEO setup','Social media links','Domain setup assistance']},
+  {id:'b',cls:'t2',name:'Business Pro',desc:'A full website built to attract, engage and convert customers.',ngn:350000,time:'2 – 4 weeks',pop:true,feats:['Up to 8 pages, custom design','Mobile & tablet optimised','Blog or news section','SEO + Google Analytics','WhatsApp chat integration','Social media setup (2 platforms)','3 months post-launch support']},
+  {id:'e',cls:'t3',name:'E-Commerce',desc:'A complete online store ready to take orders and payments.',ngn:550000,time:'3 – 6 weeks',feats:['Full product catalogue','Paystack / Flutterwave / Stripe','Inventory management','Customer & order dashboard','Advanced SEO & analytics','Email marketing integration','6 months post-launch support']},
+  {id:'m',cls:'t4',name:'Mobile App',desc:'A custom iOS & Android app tailored to your business.',ngn:750000,time:'6 – 12 weeks',feats:['iOS & Android cross-platform','Custom UI/UX design','User auth & onboarding','Push notifications','API & backend integration','App Store & Play Store submission','6 months post-launch support']}
+];
+var ADDS=[
+  {id:'logo',name:'Logo & brand identity',ngn:60000},
+  {id:'seo',name:'Advanced SEO package',ngn:80000},
+  {id:'host',name:'1-year hosting management',ngn:50000},
+  {id:'copy',name:'Copywriting & content writing',ngn:70000},
+  {id:'soc',name:'Social media setup (4 platforms)',ngn:55000},
+  {id:'maint',name:'Monthly maintenance plan',ngn:40000}
+];
+var cur='NGN',sel=null,ticked={};
+
+function money(n){
+  if(cur==='USDT') return '₮'+(n*RATES['USD']).toFixed(2);
+  return SYMS[cur]+Math.round(n*RATES[cur]).toLocaleString();
+}
+
+function drawPkgs(){
+  var h='';
+  for(var i=0;i<PKGS.length;i++){
+    var p=PKGS[i]; var isSel=sel===p.id; var fl='';
+    for(var j=0;j<p.feats.length;j++) fl+='<li>'+p.feats[j]+'</li>';
+    h+='<div class="pkg '+p.cls+(isSel?' sel':'')+(p.pop?' pop':'')+'" onclick="pickPkg(\''+p.id+'\')">';
+    if(p.pop) h+='<div class="pop-tag">Most popular</div>';
+    h+='<div class="chk-ring"><svg width="9" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>';
+    h+='<div class="dot"></div><div class="pkg-name">'+p.name+'</div><div class="pkg-desc">'+p.desc+'</div>';
+    h+='<div class="pkg-price">'+money(p.ngn)+'</div><div class="pkg-sub">starting from · '+p.time+'</div>';
+    h+='<ul class="pkg-feats">'+fl+'</ul></div>';
+  }
+  document.getElementById('pkgGrid').innerHTML=h;
+}
+
+function drawAdds(){
+  var h='';
+  for(var i=0;i<ADDS.length;i++){
+    var a=ADDS[i]; var isC=!!ticked[a.id];
+    h+='<label class="addon'+(isC?' chkd':'')+'">';
+    h+='<input type="checkbox" '+(isC?'checked':'')+' onchange="tickAdd(\''+a.id+'\',this.checked)">';
+    h+='<div><div class="addon-name">'+a.name+'</div><div class="addon-price">'+money(a.ngn)+'</div></div></label>';
+  }
+  document.getElementById('addonGrid').innerHTML=h;
+}
+
+function drawSum(){
+  var p=null;
+  for(var i=0;i<PKGS.length;i++){if(PKGS[i].id===sel){p=PKGS[i];break;}}
+  var pa=p?p.ngn:0,aa=0; var names=[];
+  for(var id in ticked){
+    if(ticked[id]){for(var i=0;i<ADDS.length;i++){if(ADDS[i].id===id){aa+=ADDS[i].ngn;names.push(ADDS[i].name);}}}
+  }
+  var tot=pa+aa; var dep=Math.round(tot*0.6);
+  document.getElementById('sumPkgHead').textContent=p?p.name:'None selected';
+  document.getElementById('sumPkgPrice').textContent=p?money(pa):'—';
+  document.getElementById('sumAddons').textContent=names.length?names.join(', '):'None';
+  document.getElementById('sumAddonsPrice').textContent=aa>0?money(aa):'—';
+  document.getElementById('sumTimeline').textContent=p?p.time:'—';
+  document.getElementById('sumDeposit').textContent=tot>0?money(dep):'—';
+  document.getElementById('sumTotal').textContent=tot>0?money(tot):'—';
+
+  var usdtRow=document.getElementById('usdtSumRow');
+  var depBox=document.getElementById('usdtDepBox');
+  if(tot>0){
+    var depU=(dep*RATES['USD']).toFixed(2);
+    var totU=(tot*RATES['USD']).toFixed(2);
+    usdtRow.classList.add('show');
+    document.getElementById('usdtSumVal').textContent='₮'+depU+' USDT';
+    depBox.style.display='block';
+    document.getElementById('usdtDepVal').textContent=depU;
+    document.getElementById('usdtFullVal').textContent=totU;
+  } else {
+    usdtRow.classList.remove('show');
+    depBox.style.display='none';
+  }
+}
+
+function pickPkg(id){sel=(sel===id?null:id);drawPkgs();drawSum();}
+function tickAdd(id,val){ticked[id]=val;drawAdds();drawSum();}
+
+function updateRate(){
+  var isUSDT=cur==='USDT';
+  document.getElementById('usdtBanner').className='usdt-banner'+(isUSDT?' show':'');
+  if(cur==='NGN') document.getElementById('rateDisplay').textContent='Base currency';
+  else if(isUSDT) document.getElementById('rateDisplay').textContent='$1 = ₮1 (pegged)';
+  else document.getElementById('rateDisplay').textContent='₦'+Math.round(1/RATES[cur]).toLocaleString()+' = '+SYMS[cur]+'1';
+  drawPkgs();drawAdds();drawSum();
+}
+
+function copyWallet(){
+  var btn=document.getElementById('copyBtn');
+  navigator.clipboard.writeText(WALLET).then(function(){
+    btn.textContent='Copied!';btn.style.background='#0e6b4a';
+    setTimeout(function(){btn.textContent='Copy address';btn.style.background='#26A17B';},2200);
+  }).catch(function(){
+    btn.textContent='Select manually';
+    setTimeout(function(){btn.textContent='Copy address';},2500);
+  });
+}
+
+document.getElementById('ctrySel').addEventListener('change',function(){
+  cur=CTRY[this.value]||'USD';
+  document.getElementById('curSel').value=cur;
+  updateRate();
+});
+document.getElementById('curSel').addEventListener('change',function(){
+  cur=this.value;
+  if(cur==='USDT') document.getElementById('ctrySel').value='USDT';
+  updateRate();
+});
+
+var now=new Date();
+document.getElementById('docdate').textContent=now.toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'});
+document.getElementById('docref').textContent='SGS-'+now.getFullYear()+'-001';
+drawPkgs();drawAdds();drawSum();
+</script>
+</body>
+</html>
